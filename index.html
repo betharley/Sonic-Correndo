@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+	<title>Sonic</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		canvas{
+			border: 1px solid #00F;
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+</body>
+
+<script src="js/escala.js"></script>
+<script src="js/carro.js"></script>
+<script src="js/cenario.js"></script>
+<script src="js/sonic.js"></script>
+<script src="js/fase01.js"></script>
+<script src="js/game.js"></script>
+
+<script type="text/javascript">
+
+	//CANVAS E CONTEXTO
+	const canvas = document.querySelector("canvas");
+	const contexto = canvas.getContext("2d");
+
+	canvas.width = 600;
+	canvas.height = 300;
+
+
+
+	let contadorImg = 0;
+	const teclado = {
+		left: false,
+		right: false,
+		up: false,
+		down: false,
+		pulo: false,
+	};
+
+	contexto.fillRect(0, 0, 50, 50);
+	const escala = new Escala(contexto);
+
+	const imgSonic = new Image();
+	imgSonic.src = "img/sonic.png";
+	imgSonic.onload = carregando;
+
+	const imgCenario1 = new Image();
+	imgCenario1.src = "img/cenario1.png";
+	imgCenario1.onload = carregando;
+	
+	const imgCarro1 = new Image();
+	imgCarro1.src = "img/carro1.png";
+	imgCarro1.onload = carregando;
+	
+	const imgCarro2 = new Image();
+	imgCarro2.src = "img/carro2.png";
+	imgCarro2.onload = carregando;
+	
+	console.log("IMAGEM: ", imgCarro2.width );
+
+	const game = new Game(escala, teclado);
+
+	function carregando(){
+		contadorImg++;
+
+		if(contadorImg == 4){
+			game.ligar();
+		}
+	}
+
+
+	window.addEventListener("keydown", function(evento){
+		let tecla = evento.keyCode;
+		if(tecla == 37){
+			teclado.left = true;
+		}else
+		if(tecla == 38){
+			teclado.up = true;
+		}else
+		if(tecla == 39){
+			teclado.right = true;
+		}else
+		if(tecla == 40){
+			teclado.down = true;
+		}else
+		if(tecla == 32){
+			teclado.pulo = true;
+		}
+	}, false);
+	window.addEventListener("keyup", function(evento){
+		let tecla = evento.keyCode;
+		if(tecla == 37){
+			teclado.left = false;
+		}else
+		if(tecla == 38){
+			teclado.up = false;
+		}else
+		if(tecla == 39){
+			teclado.right = false;
+		}else
+		if(tecla == 40){
+			teclado.down = false;
+		}else
+		if(tecla == 32){
+			teclado.pulo = false;
+		}
+	}, false);
+
+
+
+
+
+
+
+</script>
+</html>
+
+
+
+
+ <br/> <br/> <br/> <br/>
+
+
+
+
+DSL APAGADA/MODEM LIGADO / <br/>
+TESTES INTERNOS DE CABOS E FILTRO DE LINHA/ <br/>
+CONTATOS: 
+ <br/>
+
+<br/>
+
+DSL APAGADA/MODEM LIGADO / <br/>
+TESTES INTERNOS DE CABOS E FILTRO DE LINHA/<br/>
+CONTATOS:  /   
+
+
+
+
+
+
+
+
